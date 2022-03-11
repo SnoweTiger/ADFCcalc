@@ -19,6 +19,8 @@ input_pole = document.querySelector('input[aria-label="poles"]');
 input_F2 = document.querySelector('input[aria-label="target_fr"]');
 input_P2 = document.querySelector('input[aria-label="power_out"]');
 
+input_ratio = document.querySelector('input[aria-label="ratio"]');
+
 
 canvas = document.getElementById('canvas');
 ctx = canvas.getContext('2d');
@@ -34,7 +36,7 @@ function Scaler_Y(Y, scale){
 }
 
 
-function Draw(F,P,N,N2,POL){
+function Draw(F,P,N,N2,POL,RATIO){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   AxeX_L = canvas.width - 40 - 20;
@@ -108,8 +110,8 @@ function Draw(F,P,N,N2,POL){
     Ni = (1-S) * (60 * Fi) / (POL / 2);
     Pi = (P1 * Ni*Ni*Ni)/(N1*N1*N1);
     graf_F[i] = Fi;
-    graf_N[i] = Ni;
-    graf_P[i] = Pi;
+    graf_N[i] = Ni*RATIO;
+    graf_P[i] = Pi/RATIO;
   }
 
   // Draw(F1, P1, N1);
@@ -146,8 +148,8 @@ function Draw(F,P,N,N2,POL){
 
   //Считаем характеристики в точке
   // N2 = (1-S)*(60 * F2)/(POL/2);
-  F2 = (N2 * POL) / (120 * (1-S));
-  P2 = (P*N2*N2*N2)/(N*N*N);
+  F2 = ((N2 * POL) / (120 * (1-S)))*RATIO;
+  P2 = ((P*N2*N2*N2)/(N*N*N))/RATIO;
   alert(F2+' '+P2);
 
   input_F2.setAttribute('value', F2.toFixed(2));
@@ -191,8 +193,9 @@ button.onclick = function() {
   F1 = input_F1.value;
   N2 = input_N2.value;
   POL = input_pole.value;
+  RATIO = input_ratio.value;
   alert(P1+' '+N1+' '+F1);
-  Draw(F1,P1,N1,N2,POL);
+  Draw(F1,P1,N1,N2,POL,RATIO);
   };
 
 document.addEventListener("DOMContentLoaded", ready());
