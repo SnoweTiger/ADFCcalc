@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>ADFCcalc</title>
+  </head>
+  <body>
+    <h1 class="text-center display-4  fw-bold">ADFC calculator</h1>
+
+    <div class="px-4 py-5 my-5 text-center">
+
+      <label for="basic-url" class="form-label">Select drive configuration</label>
+
+      <div class="input-group mb-3">
+        <select class="form-select" aria-label="Default select example">
+          <option selected value="1">only AC motor</option>
+          <option value="2">AC motor + gear</option>
+        </select>
+      </div>
+
+
+      <label for="basic-url" class="form-label">AC motor characteristics</label>
+
+      <div class="input-group mb-3">
+
+        <span class="input-group-text" id="basic-addon1">Motor power (kW)</span>
+        <input id= 'power' type="text" class="form-control" placeholder="45" aria-label="power" aria-describedby="basic-addon1"   value="45">
+
+        <span class="input-group-text" id="basic-addon1">Nominal speed (min-1)</span>
+        <input type="text" class="form-control" placeholder="3000" aria-label="speed" aria-describedby="basic-addon1"  value="3000">
+
+      </div>
+
+      <div class="input-group mb-3">
+
+        <span class="input-group-text" id="basic-addon1">Nominal frequency (Hz)</span>
+        <input type="text" class="form-control" placeholder="50" aria-label="fr" aria-describedby="basic-addon1"  value="50">
+
+        <span class="input-group-text" id="basic-addon1">Number of poles</span>
+        <input type="text" class="form-control" placeholder="2" aria-label="poles" aria-describedby="basic-addon1"  value="2">
+
+      </div>
+
+      <label for="basic-url" class="form-label">Gear characteristics</label>
+
+      <div class="input-group mb-3">
+
+        <span class="input-group-text" id="basic-addon1">Gear ratio</span>
+        <input type="text" class="form-control" placeholder="1" aria-label="ratio" aria-describedby="basic-addon1" value="1">
+
+      </div>
+
+      <label for="basic-url" class="form-label">Characteristics at output shaft</label>
+
+      <div class="input-group mb-3">
+
+        <span class="input-group-text" id="basic-addon1">Output shaft speed (min-1)</span>
+        <input type="text" class="form-control" placeholder="1" aria-label="out_speed" aria-describedby="basic-addon1" value="1500">
+
+      </div>
+
+      <button id = 'BtCalc' type="button" class="btn btn-primary">Primary</button>
+
+    </div>
+
+    <div class="px-5 py-1 my-1 text-center">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Power on output shaft(kW)</span>
+        <input type="text" class="form-control" placeholder="1" aria-label="power_out" aria-describedby="basic-addon1" value="1">
+        <span class="input-group-text" id="basic-addon1">Target f(Hz)</span>
+        <input type="text" class="form-control" placeholder="1" aria-label="target_fr" aria-describedby="basic-addon1" value="1">
+      </div>
+      <div class='div-canvas'>
+				<canvas width='800' height='400' id="canvas" ></canvas>
+			</div>
+    </div>
+
+
+
+
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <span class="text-muted">&copy; 2021-2022 Kirill Reva <a href= "mailto:snowetiger@gmail.com">Send Email</a></span>
+      </div>
+
+    </footer>
+
+
+      <!-- Optional JavaScript; choose one of the two! -->
+      <script src="script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+</html>
