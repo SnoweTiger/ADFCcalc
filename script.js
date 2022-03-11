@@ -40,7 +40,7 @@ function Draw(F,P,N,N2,POL){
   AxeX_L = canvas.width - 40 - 20;
   AxeY_L = canvas.height- 40 - 20;
   AxeX_D = 10;
-  AxeY_D = 6;
+  AxeY_D = 10;
 
   scale_F_step = AxeX_L / AxeX_D ;
   scale_P_step = AxeY_L / AxeY_D ;
@@ -67,15 +67,15 @@ function Draw(F,P,N,N2,POL){
   for(let i = 0; i <= AxeY_D ; i++) {
         ctx.fillText(N1 - i*scale_N + "", 30, i * scale_N_step + 20);
         ctx.beginPath();
-        ctx.moveTo(33, i  * scale_F_step + 20);
-        ctx.lineTo(40, i  * scale_F_step + 20);
+        ctx.moveTo(33, i  * scale_N_step + 20);
+        ctx.lineTo(40, i  * scale_N_step + 20);
         ctx.stroke();
   }
 
   //Рисуем шкалу P
   ctx.fillStyle = "Red";
   for(let i = 0; i <= AxeY_D ; i++) {
-        ctx.fillText((P1 - i*scale_P).toFixed(0) + "", 30, i * scale_P_step + 20 +10);
+        ctx.fillText((P1 - i*scale_P).toFixed(1) + "", 30, i * scale_P_step + 20 +10);
   }
 
   //Рисуем шкалу f
@@ -148,7 +148,7 @@ function Draw(F,P,N,N2,POL){
   // N2 = (1-S)*(60 * F2)/(POL/2);
   F2 = (N2 * POL) / (120 * (1-S));
   P2 = (P*N2*N2*N2)/(N*N*N);
-  alert(F2+P2);
+  alert(F2+' '+P2);
 
   input_F2.setAttribute('value', F2.toFixed(2));
   input_P2.setAttribute('value', P2.toFixed(2));
