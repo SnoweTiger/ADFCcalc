@@ -4,7 +4,7 @@ function ready(){
   F1 = input_F1.value;
   P1 = input_P1.value;
 
-  alert("Hello", F1);
+  // alert("Hello", F1);
 
   // Draw(F1,P1,N1);
   // updateFields();
@@ -110,7 +110,7 @@ function Draw(F,P,N,N2,POL,RATIO,DRIVETYPE){
   // scaleN = AxeY_L / Nend;
   // scaleP = AxeY_L / Pend;
 
-  alert('Fend='+Fend+'Pend='+Pend+'Nend='+Nend);
+  // alert('Fend='+Fend+'Pend='+Pend+'Nend='+Nend);
   // alert('scale='+scaleF+'/'+scaleN+'/'+scaleP);
 
 
@@ -205,7 +205,7 @@ function Draw(F,P,N,N2,POL,RATIO,DRIVETYPE){
 
   //Рисуем шкалу N
   ctx.font = "normal normal 12px Helvetica";
-  ctx.fillStyle = "Blue";
+  ctx.fillStyle = "green";
   ctx.textAlign = 'right';
   for(let i = 0; i <= AxeY_D ; i++) {
         ctx.fillText(Nend - i*scale_N + "", 30, i * scale_N_step + 20);
@@ -216,7 +216,7 @@ function Draw(F,P,N,N2,POL,RATIO,DRIVETYPE){
   }
 
   //Рисуем шкалу P
-  ctx.fillStyle = "Red";
+  ctx.fillStyle = "red";
   ctx.strokeStyle = 'black';
   for(let i = 0; i <= AxeY_D ; i++) {
         ctx.fillText((Pend - i*scale_P).toFixed(1) + "", 30, i * scale_P_step + 20 +10);
