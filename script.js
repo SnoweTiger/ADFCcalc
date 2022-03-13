@@ -19,10 +19,14 @@ input_pole = document.querySelector('input[aria-label="poles"]');
 input_drivetype = document.querySelector('select[aria-label="drive-type"]');
 // drive-type
 
+output_block = document.querySelector('div[id="output"]');
+
 input_F2 = document.querySelector('input[aria-label="target_fr"]');
 input_P2 = document.querySelector('input[aria-label="power_out"]');
 
 input_ratio = document.querySelector('input[aria-label="ratio"]');
+
+output_block.style.visibility = "hidden";
 
 
 canvas = document.getElementById('canvas');
@@ -74,6 +78,8 @@ function Draw(F,P,N,N2,POL,RATIO,DRIVETYPE){
   // N2 = (1-S)*(60 * F2)/(POL/2);
   P2 = ((P*N2motor*N2motor*N2motor)/(N*N*N));
   // alert('F2='+F2+' '+P2);
+
+  output_block.style.visibility = "visible";
 
   input_F2.setAttribute('value', F2.toFixed(2));
   input_P2.setAttribute('value', P2.toFixed(2));
@@ -257,12 +263,12 @@ button.onclick = function() {
 input_drivetype.onchange = function(){
   DRIVETYPE = input_drivetype.value;
   if (DRIVETYPE == 1){
-    alert('raz');
+    // alert('raz');
     input_ratio.value = 1;
     input_ratio.disabled = true;
   }
   else{
-    alert('dwa');
+    // alert('dwa');
     input_ratio.disabled = false;
     }
   }
